@@ -21,7 +21,7 @@ app.post('/', (req, res) => {
           return res.sendStatus(204);
         });
     }else{
-        console.log('Repository still under development');
+        console.log('Repository is still under development');
         return res.sendStatus(204);
     }
 });
