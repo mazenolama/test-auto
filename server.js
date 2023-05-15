@@ -6,7 +6,7 @@ const PORT = 4000;
 const REPO_PATH = 'H:\\Workspace\\Hadef IT\\Local-QM System\\testpull\\test-auto';
 app.post('/', (req, res) => {
     const payload = req.body;
-    if(payload.head_commit.message == "producation"){
+    if(payload.ref == "refs/heads/production"){
         git.cwd(REPO_PATH)
         .pull((err, update) => {
           if (err) {
@@ -26,7 +26,7 @@ app.post('/', (req, res) => {
         return res.sendStatus(204);
     }
 });
-
+console.log("development");
 app.listen(PORT, () => {
   console.log(`Webhook server listening on port ${PORT}`);
 });
