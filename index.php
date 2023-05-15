@@ -10,30 +10,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if the payload is for a push event
     if (isset($payload['ref']) && $payload['ref'] === 'refs/heads/main') {
 
-    // Execute the Git pull command to update the repository
-    $output = shell_exec('cd H:\Workspace\Hadef IT\Local-QM System\testpull System && git pull');
+        // Execute the Git pull command to update the repository
+        $output = shell_exec('cd H:\Workspace\Hadef IT\Local-QM System\testpull System && git pull');
 
-    // Log the output of the Git pull command
-    file_put_contents('logfile.txt', $output, FILE_APPEND);
+        // Log the output of the Git pull command
+        file_put_contents('logfile.txt', $output, FILE_APPEND);
 
-    // Respond to the webhook notification with a success message
-    http_response_code(200);
-    echo 'Git repository pulled successfully';
+        // Respond to the webhook notification with a success message
+        http_response_code(200);
+        echo 'Git repository pulled successfully';
 
-    } else {
+        } else {
 
-    // Respond to the webhook notification with an error message
-    http_response_code(400);
-    echo 'Invalid webhook notification payload';
+        // Respond to the webhook notification with an error message
+        http_response_code(400);
+        echo 'Invalid webhook notification payload';
 
     }
 
-    // Write the payload to a text file
-    file_put_contents('payload.txt', $payload);
-
-    // Send a response
-    http_response_code(200);
-    echo 'Payload written to file.';
 } else {
     // Send an error response for unsupported request methods
     http_response_code(405);
