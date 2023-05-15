@@ -6,7 +6,7 @@ $jsonPayload = file_get_contents('php://input');
 $payload = json_decode($jsonPayload, true);
 
 // Check if the payload is for a push event
-if (isset($payload['ref']) && $payload['ref'] === 'refs/heads/master') {
+if (isset($payload['ref']) && $payload['ref'] === 'refs/heads/main') {
 
   // Execute the Git pull command to update the repository
   $output = shell_exec('cd H:/Workspace/Hadef IT/Local-QM System && git pull');
