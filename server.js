@@ -5,10 +5,8 @@ app.use(express.json());
 const PORT = 4000;
 const REPO_PATH = 'H:\\Workspace\\Hadef IT\\Local-QM System\\testpull\\test-auto';
 app.post('/', (req, res) => {
-
     const payload = req.body;
-    console.log(payload);
-    if(res.commits[0].message == "producation"){
+    if(payload.head_commit.message == "producation"){
         git.cwd(REPO_PATH)
         .pull((err, update) => {
           if (err) {
