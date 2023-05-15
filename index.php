@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jsonPayload = file_get_contents('php://input');
     // Parse the JSON payload into an associative array
     $payload = json_decode($jsonPayload, true);
+    file_put_contents('logfile.txt', $payload, FILE_APPEND);
 
     // Check if the payload is for a push event
     if (isset($payload['ref']) && $payload['ref'] === 'refs/heads/main') {
