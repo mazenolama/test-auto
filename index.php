@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $payload = file_get_contents('php://input');
 
     // Write the payload to a text file
+    $payload = json_decode($jsonPayload, true);
     file_put_contents('payload.txt', $payload);
 
     // Send a response
