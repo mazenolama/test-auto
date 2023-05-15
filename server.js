@@ -5,7 +5,8 @@ const git = require('simple-git')();
 const PORT = 4000;
 const REPO_PATH = 'H:\\Workspace\\Hadef IT\\Local-QM System\\testpull\\test-auto';
 app.post('/', (req, res) => {
-    if(res.head_commit[0].message == "producation"){
+    console.log();
+    if(res.commits[0].message == "producation"){
         git.cwd(REPO_PATH)
         .pull((err, update) => {
           if (err) {
