@@ -20,6 +20,9 @@ app.post('/', (req, res) => {
           console.log('Repository is up to date.');
           return res.sendStatus(204);
         });
+    }else{
+        console.log('Repository still under development');
+        return res.sendStatus(204);
     }
 });
 
