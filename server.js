@@ -3,7 +3,7 @@ const app = express();
 const git = require('simple-git')();
 app.use(express.json());
 const PORT = 4000;
-const REPO_PATH = 'H:\\Workspace\\Hadef IT\\Local-QM System\\testpull\\test-auto';
+const REPO_PATH = './';
 app.post('/', (req, res) => {
     const payload = req.body;
     if(payload.ref == "refs/heads/production"){
