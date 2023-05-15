@@ -15,7 +15,7 @@ app.post('/', (req, res) => {
           }
     
           if (update && update.summary.changes) {
-            console.log('Repository pulled successfully.');
+            console.log('Repository pulled successfully');
             return res.sendStatus(200);
           }
           console.log('Repository is up to date.');
