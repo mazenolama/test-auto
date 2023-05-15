@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Parse the JSON payload into an associative array
     // Decode the JSON payload
     $data = json_decode($payload, true);
-    file_put_contents('logfile.json', $data, FILE_APPEND);
+    file_put_contents('log.json', $payload, FILE_APPEND);
 
     // Check if decoding was successful
     if ($data !== null) {
